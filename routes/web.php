@@ -13,10 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('contacts','ContactController@getIndex');
+Route::post('contacts','ContactController@postStore');
+Route::get('contacts/data','ContactController@getData');
+Route::post('contact/update','ContactController@postUpdate');
+Route::post('contact/delete','ContactController@postDelete');
